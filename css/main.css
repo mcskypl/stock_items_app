@@ -67,3 +67,34 @@ input {
     padding: 12px 10vw;
     text-transform: uppercase;
 }
+
+.hiddenClass {
+    visibility: hidden;
+}
+
+.bgModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.77);
+    height: 100vh;
+    width: 100vw;
+}
+
+.deleteModal {
+    background-color: #222222;
+    color: #fff;
+    border-radius: 20px;
+    padding: 30px 10px;
+    position: fixed;
+    font-size: 20px;
+    width: 80vw;
+    top: 20vh;
+    left: 10vw;
+    text-align: center;
+    box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.7);
+}
+
+.deleteModal button {
+    margin: 26px auto 0 auto;
+}

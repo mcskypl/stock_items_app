@@ -39,17 +39,44 @@
         <button type="button" class="btn-close btn-close-alert-success" aria-label="Close"></button>
     </div>
 
-    <form class="szukaj">
+    <div class="alert alert-success-add alert-dismissible fade" role="alert">
+        Dodano pomyślnie!
+        <button type="button" class="btn-close btn-close-alert-success" aria-label="Close"></button>
+    </div>
 
+    <div class="alert alert-warning-add alert-dismissible fade" role="alert">
+        Na tym miejscu znajduje się już index z taką partią!
+        <button type="button" class="btn-close btn-close-alert-warning" aria-label="Close"></button>
+    </div>
+
+    <form class="form hiddenClass">
+        <div class="badgeIndex"></div>
+        <hr>
+
+        <div class="mb-3">
+            <label for="miejsce" class="form-label">Miejsce</label>
+            <input type="text" class="form-control" id="miejsce" name="miejsce" autofocus="autofocus" required >
+        </div>
+
+        <div class="mb-3">
+            <label for="partia" class="form-label">Partia</label>
+            <input type="text" class="form-control" id="partia" name="partia" required >
+        </div>
+
+        <button class="btn btn-primary add">Dodaj</button>
+    </form>
+
+    <form class="szukaj">
         <div class="mb-3">
             <label for="numer" class="form-label">Index</label>
             <input type="text" class="form-control" id="numer" name="numer" required >
         </div>
 
         <button class="btn btn-primary add">Szukaj</button>
-
     </form>
 
+    <button class="btn btn-success addIndex hiddenClass"></button>
+    <h5 class="brak"></h5>
     <div class="list"></div>
 
     <div class="modal">
@@ -79,6 +106,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <script src="../../auth.js"></script>
+<script src="./imports.js"></script>
 <script src="./search.js"></script>
 
 </body>

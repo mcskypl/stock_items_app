@@ -84,7 +84,7 @@ input {
 .deleteModal {
     background-color: #222222;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 30px 10px;
     position: fixed;
     font-size: 20px;
@@ -97,6 +97,8 @@ input {
 
 .deleteModal button {
     margin: 26px auto 0 auto;
+    font-size: 16px;
+    width: 80%;
 }
 
 h1 {

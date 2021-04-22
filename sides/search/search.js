@@ -1,23 +1,24 @@
-btnCloseSuccess.addEventListener('click', () => {
-    alertSuccess.classList.remove('show');
+btnCloseSuccessRemove.addEventListener('click', () => {
+    alertSuccessRemove.classList.remove('show');
 })
 
+btnCloseSuccessAdd.addEventListener('click', () => {
+    alertSuccessAdd.classList.remove('show');
+    alertSuccessAdd.style.zIndex = '1';
+})
+
+btnCloseWarningAdd.addEventListener('click', () => {
+    alertWarningAdd.classList.remove('show');
+    alertWarningAdd.style.zIndex = "1";
+})
+
+// *-------------------------------------------------------------------------------------------- ADD ITEM
 const addIndexFn = (indexValue) => {
     addIndex.addEventListener('click', () => {
         console.log(indexValue);
         form.classList.remove('hiddenClass');
         szukaj.classList.add('hiddenClass');
         addIndex.classList.add('hiddenClass');
-
-        btnCloseSuccessAdd.addEventListener('click', () => {
-            alertSuccessAdd.classList.remove('show');
-            alertSuccessAdd.style.zIndex = '1';
-        })
-
-        btnCloseWarning.addEventListener('click', () => {
-            alertWarningAdd.classList.remove('show');
-            alertWarningAdd.style.zIndex = "1";
-        })
 
         badgeIndex.innerHTML = `<h1>${indexValue}</h1>`;
 
@@ -37,11 +38,11 @@ const addIndexFn = (indexValue) => {
                         miejsce: form.miejsce.value.toUpperCase(),
                         partia: form.partia.value
                     })
-                    alertSuccess.classList.add('show');
-                    alertSuccess.style.zIndex = '10';
+                    alertSuccessAdd.classList.add('show');
+                    alertSuccessAdd.style.zIndex = '10';
                 } else {
-                    alertWarning.style.zIndex = "10";
-                    alertWarning.classList.add('show');
+                    alertWarningAdd.style.zIndex = "10";
+                    alertWarningAdd.classList.add('show');
                 }
 
                 form.partia.value = '';
@@ -49,6 +50,7 @@ const addIndexFn = (indexValue) => {
         })
     })
 }
+// !-------------------------------------------------------------------------------------------- ADD ITEM
 
 // *-------------------------------------------------------------------------------------------- RENDER LIST
 const renderListFn = (doc) => {
@@ -91,7 +93,7 @@ const renderListFn = (doc) => {
 
             //id = '';
             bgModal.classList.add('hiddenClass');
-            alertSuccess.classList.add('show');
+            alertSuccessRemove.classList.add('show');
         })
 
         stayButton.addEventListener('click', (e) => {
@@ -119,7 +121,7 @@ auth.onAuthStateChanged((user) => {
 
             addIndex.classList.remove('hiddenClass');
             addIndex.innerHTML = 'Dodaj ' + indexValue;
-            
+
 
             // *-------------------------------------------------------------------------------------------- REAL TIME LISTENER
             db.collection('magazyn').doc('mag4').collection(indexValue).onSnapshot(snapshot => {

@@ -112,7 +112,7 @@ auth.onAuthStateChanged((user) => {
         szukaj.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            brak.innerHTML = '';
+            brak.innerHTML = 'Brak pozycji!';
             list.innerHTML = '';
 
             let indexValue = szukaj.numer.value.toUpperCase();
@@ -127,6 +127,7 @@ auth.onAuthStateChanged((user) => {
             db.collection('magazyn').doc('mag4').collection(indexValue).onSnapshot(snapshot => {
                 let changes = snapshot.docChanges();
                 changes.forEach(change => {
+                    brak.innerHTML = '';
                     console.log(change.type);
                     if (change.type === 'removed') {
                         let li = list.querySelector('[data-id=' + change.doc.id + ']');

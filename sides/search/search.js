@@ -28,25 +28,31 @@ const addIndexFn = (indexValue) => {
             let i = false;
             let index = indexValue;
 
-            db.collection('magazyn').doc('mag4').collection(index).get().then((snapshot) => {
-                snapshot.docs.forEach(doc => {
-                    if (form.miejsce.value.toUpperCase() === doc.data().miejsce && form.partia.value === doc.data().partia) i = true;
-                })
+            // db.collection('magazyn').doc('mag4').collection(index).get().then((snapshot) => {
+            //     snapshot.docs.forEach(doc => {
+            //         if (form.miejsce.value.toUpperCase() === doc.data().miejsce && form.partia.value === doc.data().partia) i = true;
+            //     })
+            // });
+            //
+            // console.log('koniec szukania');
+            // if (!i) {
+            //     db.collection('magazyn').doc('mag4').collection(index).add({
+            //         miejsce: form.miejsce.value.toUpperCase(),
+            //         partia: form.partia.value
+            //     })
+            //     alertSuccessAdd.classList.add('show');
+            //     alertSuccessAdd.style.zIndex = '10';
+            // } else {
+            //     alertWarningAdd.style.zIndex = "10";
+            //     alertWarningAdd.classList.add('show');
+            // }
 
-                if (!i) {
-                    db.collection('magazyn').doc('mag4').collection(index).add({
-                        miejsce: form.miejsce.value.toUpperCase(),
-                        partia: form.partia.value
-                    })
-                    alertSuccessAdd.classList.add('show');
-                    alertSuccessAdd.style.zIndex = '10';
-                } else {
-                    alertWarningAdd.style.zIndex = "10";
-                    alertWarningAdd.classList.add('show');
-                }
+            db.collection('magazyn').doc('mag4').collection(index).add({
+                miejsce: form.miejsce.value.toUpperCase(),
+                partia: form.partia.value
+            })
 
-                form.partia.value = '';
-            });
+            form.partia.value = '';
         })
     })
 }
